@@ -1,0 +1,152 @@
+:root {
+  --bg-dark: #000000;
+  --bg-light: #ffffff;
+  --text-dark: #e5e7eb;
+  --text-light: #020617;
+  --card-dark: #020617;
+  --card-light: #f8fafc;
+}
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* THEMES */
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* HEADER */
+header {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.4rem;
+}
+
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* NEON NAV BAR */
+.neon-bar {
+  margin: 15px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  animation: rgb 6s linear infinite;
+  filter: blur(8px);
+}
+
+.neon-bar::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #020617;
+  border-radius: 12px;
+}
+
+body.light .neon-bar::after {
+  background: #ffffff;
+}
+
+@keyframes rgb {
+  from { background-position: 0%; }
+  to { background-position: 400%; }
+}
+
+.nav-item {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+  padding: 6px 10px;
+}
+
+/* TAPPING EFFECT */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  opacity: 0;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.nav-item:active::after {
+  opacity: 1;
+}
+
+/* MAIN */
+main {
+  padding: 20px;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--card-dark);
+  box-shadow: 0 0 20px rgba(0,255,255,0.08);
+}
+
+body.light .card {
+  background: var(--card-light);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
