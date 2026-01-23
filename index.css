@@ -7,7 +7,7 @@
   --card-light: #f8fafc;
 }
 
-/* GLOBAL */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +20,6 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* THEMES */
 body.dark {
   background: var(--bg-dark);
   color: var(--text-dark);
@@ -39,29 +38,38 @@ header {
   align-items: center;
 }
 
-header h1 {
-  font-size: 1.4rem;
-}
-
 #themeToggle {
+  font-size: 1.3rem;
   background: none;
   border: none;
-  font-size: 1.3rem;
   cursor: pointer;
 }
 
-/* NEON NAV BAR */
-.neon-bar {
-  margin: 15px;
-  padding: 12px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 14px;
+/* GRID */
+.grid {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* SUBJECT CARD */
+.subject-card {
   position: relative;
+  height: 140px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
   overflow: hidden;
 }
 
-.neon-bar::before {
+/* NEON BORDER */
+.subject-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -77,19 +85,19 @@ header h1 {
     red
   );
   animation: rgb 6s linear infinite;
-  filter: blur(8px);
+  filter: blur(10px);
 }
 
-.neon-bar::after {
+.subject-card::after {
   content: "";
   position: absolute;
   inset: 2px;
-  background: #020617;
-  border-radius: 12px;
+  border-radius: 16px;
+  background: var(--card-dark);
 }
 
-body.light .neon-bar::after {
-  background: #ffffff;
+body.light .subject-card::after {
+  background: var(--card-light);
 }
 
 @keyframes rgb {
@@ -97,50 +105,14 @@ body.light .neon-bar::after {
   to { background-position: 400%; }
 }
 
-.nav-item {
-  position: relative;
+.subject-card span,
+.subject-card {
   z-index: 1;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-  padding: 6px 10px;
 }
 
-/* TAPPING EFFECT */
-.nav-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.1);
-  opacity: 0;
-  border-radius: 8px;
-  transition: opacity 0.2s;
-}
-
-.nav-item:active::after {
-  opacity: 1;
-}
-
-/* MAIN */
-main {
-  padding: 20px;
-}
-
-.card {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  border-radius: 16px;
-  background: var(--card-dark);
-  box-shadow: 0 0 20px rgba(0,255,255,0.08);
-}
-
-body.light .card {
-  background: var(--card-light);
-}
-
-.card h2 {
-  margin-bottom: 10px;
+/* TAP EFFECT */
+.subject-card:active {
+  transform: scale(0.97);
 }
 
 /* FOOTER */
