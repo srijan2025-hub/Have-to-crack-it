@@ -10,7 +10,10 @@
 <body class="dark">
 
 <header>
-  <h1>⚛ Physics Books</h1>
+  <div>
+    <h1>⚛ Physics Books</h1>
+    <input type="text" id="searchInput" placeholder="Search physics books...">
+  </div>
 
   <div class="controls">
     <input type="color" id="neonPicker" value="#00ffff">
@@ -18,9 +21,7 @@
   </div>
 </header>
 
-<main class="grid" id="bookGrid">
-  <!-- Books injected by JS -->
-</main>
+<main class="grid" id="bookGrid"></main>
 
 <footer>
   <p>Neon Physics Library • GitHub Pages</p>
