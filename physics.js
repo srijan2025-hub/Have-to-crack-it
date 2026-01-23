@@ -2,9 +2,9 @@ const books = [
   {
     name: "Concepts of Physics – Vol 1",
     size: "18.2 MB",
-    github: "#",
+    github: "https://github.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf",
     drive: "#",
-    download: "#"
+    download: "https://github.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
   },
   {
     name: "Concepts of Physics – Vol 2",
