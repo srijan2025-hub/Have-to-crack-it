@@ -2,16 +2,16 @@ const books = [
   {
     name: "Concepts of Physics – Vol 1",
     size: "18.2 MB",
-    github: "https://github.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf",
+    github: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf",
     drive: "#",
-    download: "https://github.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
   },
   {
     name: "Concepts of Physics – Vol 2",
     size: "21.4 MB",
-    github: "#",
+    github: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf",
     drive: "#",
-    download: "#"
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf"
   },
   {
     name: "DC Pandey Mechanics",
@@ -30,9 +30,9 @@ const books = [
   {
     name: "HC Verma Solutions",
     size: "9.6 MB",
-    github: "#",
+    github: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf",
     drive: "#",
-    download: "#"
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
   },
   {
     name: "Physics PYQs",
