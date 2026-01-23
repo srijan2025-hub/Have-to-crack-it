@@ -1,60 +1,70 @@
 const books = [
   {
     name: "Concepts of Physics – Vol 1",
-    github: "https://raw.githubusercontent.com/USERNAME/repo/main/cophysics1.pdf",
-    drive: "https://drive.google.com/file/d/XXXXX/view",
-    download: "https://raw.githubusercontent.com/USERNAME/repo/main/cophysics1.pdf"
+    size: "18.2 MB",
+    github: "#",
+    drive: "#",
+    download: "#"
   },
   {
     name: "Concepts of Physics – Vol 2",
-    github: "https://raw.githubusercontent.com/USERNAME/repo/main/cophysics2.pdf",
-    drive: "https://drive.google.com/file/d/XXXXX/view",
-    download: "https://raw.githubusercontent.com/USERNAME/repo/main/cophysics2.pdf"
+    size: "21.4 MB",
+    github: "#",
+    drive: "#",
+    download: "#"
   },
   {
     name: "DC Pandey Mechanics",
+    size: "12.8 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "DC Pandey Electricity",
+    size: "14.1 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "HC Verma Solutions",
+    size: "9.6 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "Physics PYQs",
+    size: "25.3 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "Modern Physics Notes",
+    size: "7.9 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "Electromagnetism",
+    size: "16.5 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "Thermodynamics",
+    size: "11.2 MB",
     github: "#",
     drive: "#",
     download: "#"
   },
   {
     name: "Optics Complete Guide",
+    size: "13.7 MB",
     github: "#",
     drive: "#",
     download: "#"
@@ -62,23 +72,37 @@ const books = [
 ];
 
 const grid = document.getElementById("bookGrid");
+const searchInput = document.getElementById("searchInput");
 
-books.forEach(book => {
-  const div = document.createElement("div");
-  div.className = "book";
+function renderBooks(filter = "") {
+  grid.innerHTML = "";
 
-  div.innerHTML = `
-    <div class="book-content">
-      <h3>${book.name}</h3>
-      <div class="actions">
-        <a href="${book.github}" target="_blank">View</a>
-        <a href="${book.drive}" target="_blank">GDrive</a>
-        <a href="${book.download}" download>Download</a>
-      </div>
-    </div>
-  `;
+  books
+    .filter(b => b.name.toLowerCase().includes(filter))
+    .forEach(book => {
+      const div = document.createElement("div");
+      div.className = "book";
 
-  grid.appendChild(div);
+      div.innerHTML = `
+        <div class="book-content">
+          <h3>${book.name}</h3>
+          <div class="size">📦 ${book.size}</div>
+          <div class="actions">
+            <a href="${book.github}" target="_blank">View</a>
+            <a href="${book.drive}" target="_blank">GDrive</a>
+            <a href="${book.download}" download>Download</a>
+          </div>
+        </div>
+      `;
+      grid.appendChild(div);
+    });
+}
+
+renderBooks();
+
+/* SEARCH */
+searchInput.addEventListener("input", e => {
+  renderBooks(e.target.value.toLowerCase());
 });
 
 /* THEME TOGGLE */
@@ -89,7 +113,7 @@ toggle.onclick = () => {
   toggle.textContent = document.body.classList.contains("dark") ? "🌙" : "☀️";
 };
 
-/* NEON COLOR PICKER */
+/* NEON COLOR */
 document.getElementById("neonPicker").addEventListener("input", e => {
   document.documentElement.style.setProperty("--neon", e.target.value);
 });
