@@ -1,117 +1,190 @@
 :root {
-  --bg-dark: #000;
-  --bg-light: #fff;
-  --text-dark: #e5e7eb;
-  --text-light: #020617;
-  --card-dark: #020617;
-  --card-light: #f8fafc;
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --card-bg: #121212; /* Dark mode card solid */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Neon Colors */
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --neon-green: #0aff00;
+    --neon-red: #ff0055;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+/* --- Light Mode (Glassmorphism) --- */
+body.light-mode {
+    --bg-color: #eef2f5;
+    --text-color: #222;
+    /* Semi-transparent white for glass effect */
+    --card-bg: rgba(255, 255, 255, 0.65); 
 }
 
-body.dark {
-  background: var(--bg-dark);
-  color: var(--text-dark);
+/* Reset & Basics */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    transition: background-color 0.4s ease, color 0.4s ease, opacity 0.4s ease; /* Opacity for page transition */
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
 }
 
-body.light {
-  background: var(--bg-light);
-  color: var(--text-light);
+/* --- Ambient Background Shapes (For Glass Effect) --- */
+.bg-shape {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -10;
+    opacity: 0.4;
+    transition: 0.5s;
 }
 
-/* HEADER */
+/* Only show colorful blobs in light mode for the glass effect */
+body.dark-mode .bg-shape { opacity: 0; }
+body.light-mode .bg-shape { opacity: 0.6; }
+
+.shape-1 { width: 400px; height: 400px; background: var(--neon-blue); top: -50px; left: -50px; }
+.shape-2 { width: 300px; height: 300px; background: var(--neon-purple); bottom: 50px; right: -50px; }
+
+
+/* --- Header --- */
 header {
-  padding: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+.logo { font-family: var(--font-heading); font-size: 1.5rem; letter-spacing: 2px; }
+.neon-dot { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+
+.toggle-btn {
+    background: transparent;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    transition: 0.3s;
 }
 
-#themeToggle {
-  font-size: 1.3rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+/* --- Layout --- */
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+.hero-text { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 60px; text-transform: uppercase; }
+.highlight { color: transparent; -webkit-text-stroke: 1px var(--neon-purple); text-shadow: 0 0 5px var(--neon-purple); }
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-/* GRID */
-.grid {
-  padding: 25px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+/* --- The Card --- */
+.card {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    transition: transform 0.3s ease, background 0.3s;
+    z-index: 1;
+    border: 1px solid transparent; /* Placeholder */
 }
 
-/* CARD */
-.subject-card {
-  position: relative;
-  height: 140px;
-  border-radius: 18px;
-  text-decoration: none;
-  overflow: hidden;
+/* Glassmorphism specifically for Light Mode */
+body.light-mode .card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* NEON BORDER */
-.subject-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(
-    90deg,
-    red, orange, yellow, lime,
-    cyan, blue, violet, red
-  );
-  animation: rgb 6s linear infinite;
-  z-index: 0;
+.card:hover { transform: translateY(-5px); }
+
+/* RGB Moving Border (Kept for both, but more subtle in light mode via opacity) */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 150%; height: 150%;
+    background-image: linear-gradient(45deg, var(--neon-blue), var(--neon-purple), var(--neon-red), var(--neon-green), var(--neon-blue));
+    background-size: 300% 300%;
+    animation: rotateBorder 4s linear infinite;
+    z-index: -2;
+    transform: translate(-50%, -50%);
 }
 
-.subject-card::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  background: var(--card-dark);
-  border-radius: 14px;
-  z-index: 1;
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 3px; /* Thin border thickness */
+    background: var(--card-bg); /* This covers the center */
+    border-radius: 10px;
+    z-index: -1;
 }
 
-body.light .subject-card::after {
-  background: var(--card-light);
+@keyframes rotateBorder {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* TEXT — THIS IS THE KEY FIX */
-.subject-card span {
-  position: relative;
-  z-index: 2;            /* 👈 ABOVE EVERYTHING */
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: inherit;
-  text-shadow: 0 0 10px rgba(0,255,255,0.5);
+/* --- Icons & Text --- */
+.card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    stroke: var(--text-color);
+    transition: 0.3s;
 }
 
-/* ANIMATIONS */
-@keyframes rgb {
-  from { background-position: 0%; }
-  to { background-position: 400%; }
+.card-content h2 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 10px; transition: 0.3s;}
+.card-content p { opacity: 0.7; font-size: 0.9rem; }
+
+/* --- Neon Hover Colors --- */
+/* Physics (Blue) */
+.physics-card:hover h2 { color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue); }
+.physics-card:hover .card-icon { stroke: var(--neon-blue); filter: drop-shadow(0 0 5px var(--neon-blue)); }
+
+/* Chemistry (Purple) */
+.chemistry-card:hover h2 { color: var(--neon-purple); text-shadow: 0 0 15px var(--neon-purple); }
+.chemistry-card:hover .card-icon { stroke: var(--neon-purple); filter: drop-shadow(0 0 5px var(--neon-purple)); }
+
+/* Math (Red) */
+.math-card:hover h2 { color: var(--neon-red); text-shadow: 0 0 15px var(--neon-red); }
+.math-card:hover .card-icon { stroke: var(--neon-red); filter: drop-shadow(0 0 5px var(--neon-red)); }
+
+/* Bio (Green) */
+.bio-card:hover h2 { color: var(--neon-green); text-shadow: 0 0 15px var(--neon-green); }
+.bio-card:hover .card-icon { stroke: var(--neon-green); filter: drop-shadow(0 0 5px var(--neon-green)); }
+
+/* --- Tapping Effect --- */
+.ripple {
+    position: absolute;
+    width: 20px; height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: ripple-anim 0.6s linear forwards;
+    box-shadow: 0 0 10px var(--neon-blue);
+    z-index: 100;
+}
+@keyframes ripple-anim {
+    0% { width: 0; height: 0; opacity: 1; }
+    100% { width: 150px; height: 150px; opacity: 0; }
 }
 
-/* TAP FEEDBACK */
-.subject-card:active {
-  transform: scale(0.96);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 0.8rem;
-  opacity: 0.6;
+/* Page Transition Fade Class */
+body.fade-out {
+    opacity: 0;
 }
