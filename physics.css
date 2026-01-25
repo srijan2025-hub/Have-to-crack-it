@@ -1,5 +1,4 @@
 :root {
-  --neon: #00ffff;
   --bg-dark: #000;
   --bg-light: #fff;
   --card-dark: #020617;
@@ -30,13 +29,9 @@ header {
   padding: 18px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
   align-items: center;
   flex-wrap: wrap;
-}
-
-header h1 {
-  margin-bottom: 6px;
+  gap: 10px;
 }
 
 #searchInput {
@@ -47,19 +42,6 @@ header h1 {
   background: transparent;
   color: inherit;
   outline: none;
-}
-
-/* CONTROLS */
-.controls {
-  display: flex;
-  gap: 10px;
-}
-
-#themeToggle {
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 
 /* GRID */
@@ -76,9 +58,13 @@ header h1 {
   padding: 18px;
   border-radius: 16px;
   overflow: hidden;
+  transition: transform 0.25s ease;
 }
 
-/* NEON BORDER */
+.book:hover {
+  transform: translateY(-4px);
+}
+
 .book::before {
   content: "";
   position: absolute;
@@ -99,7 +85,6 @@ body.light .book::after {
   background: var(--card-light);
 }
 
-/* CONTENT */
 .book-content {
   position: relative;
   z-index: 2;
@@ -111,17 +96,16 @@ body.light .book::after {
   text-shadow: 0 0 8px var(--neon);
 }
 
-/* SIZE */
 .size {
   font-size: 0.75rem;
   opacity: 0.8;
   margin-bottom: 10px;
 }
 
-/* ACTIONS */
+/* ACTION BUTTONS */
 .actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
@@ -130,14 +114,27 @@ body.light .book::after {
   text-align: center;
   padding: 6px;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: inherit;
   border: 1px solid var(--neon);
   box-shadow: 0 0 6px var(--neon);
+  transition: all 0.2s ease;
+}
+
+.actions a:hover {
+  box-shadow: 0 0 12px var(--neon);
 }
 
 .actions a:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
+  box-shadow: 0 0 20px var(--neon);
+}
+
+.actions a.disabled {
+  pointer-events: none;
+  opacity: 0.35;
+  border-style: dashed;
+  box-shadow: none;
 }
 
 /* FOOTER */
