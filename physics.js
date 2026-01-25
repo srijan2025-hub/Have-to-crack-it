@@ -1,17 +1,17 @@
 /* CATEGORY → NEON COLOR (YOU CONTROL THIS) */
 const CATEGORY_COLORS = {
-  hcv: "#ffd700",   // Yellow
-  dcp: "#ff004f",   // Red ❤️
-  notes: "#7cff00",
-  pyq: "#00e5ff",
-  default: "#00ffff"
+  c1: "#ffd700",   // Yellow
+  c2: "#ff004f",   // Red
+  c3: "#7cff00",
+  c4: "#00e5ff",
+  deflt: "#00ffff"
 };
 
 const books = [
   {
     name: "Concepts Of Physics HCV– Vol 1",
     size: "18.2 MB",
-    category: "hcv",
+    category: "c1",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1.pdf",
     gdrive: "www.google.com",
     drive: "#",
@@ -20,7 +20,7 @@ const books = [
   {
     name: "Concepts of Physics HCV– Vol 2",
     size: "21.4 MB",
-    category: "hcv",
+    category: "c1",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol2.pdf",
     gdrive: "#",
     drive: "#",
@@ -29,7 +29,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "hcv",
+    category: "c1",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
@@ -38,7 +38,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
+    category: "c2",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
@@ -47,7 +47,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
+    category: "c2",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
@@ -56,7 +56,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
+    category: "c3",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
@@ -65,7 +65,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
+    category: "c4",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
@@ -74,7 +74,7 @@ const books = [
   {
     name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
+    category: "c5",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
