@@ -32,8 +32,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
   flex-wrap: wrap;
+  gap: 14px;
 }
 
 .title h1 {
@@ -43,7 +43,7 @@ header {
 #searchInput {
   margin-top: 6px;
   padding: 8px 12px;
-  width: 220px;
+  width: 230px;
   border-radius: 10px;
   border: 1px solid #334155;
   background: transparent;
@@ -51,6 +51,30 @@ header {
   outline: none;
 }
 
+/* SUBJECT TABS */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tab {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #00ffff;
+  color: #000;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* CONTROLS */
 .controls button {
   background: transparent;
   border: 1px solid #334155;
@@ -69,18 +93,24 @@ header {
   gap: 20px;
 }
 
-/* BOOK CARD */
+/* BOOK CARD — THIN NEON BORDER */
 .book {
   position: relative;
   padding: 18px;
   border-radius: 16px;
-  transition: transform 0.25s ease;
+
+  /* ⭐ THIN NEON BORDER */
+  border: 1px solid var(--neon);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .book:hover {
   transform: translateY(-4px);
+  box-shadow: 0 0 8px var(--neon);
 }
 
+/* SOFT NEON GLOW */
 .book::before {
   content: "";
   position: absolute;
@@ -140,10 +170,6 @@ body.light .book::after {
   box-shadow: 0 0 10px var(--neon);
 }
 
-.actions a:active {
-  transform: scale(0.94);
-}
-
 .actions a.disabled {
   opacity: 0.35;
   pointer-events: none;
@@ -175,25 +201,11 @@ body.light .book::after {
   margin-bottom: 12px;
 }
 
-#closeAuthor {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: inherit;
-}
-
 #authorList label {
   display: flex;
   gap: 8px;
-  align-items: center;
-  font-size: 0.85rem;
   padding: 6px 0;
   cursor: pointer;
-}
-
-#authorList input {
-  accent-color: #00ffff;
 }
 
 /* FOOTER */
