@@ -10,19 +10,19 @@ const books = [
   {
     name: "Concepts of Physics – Vol 2",
     size: "21.4 MB",
-    github: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf",
+    github: "https://mozilla.github.io/pdf.js/web/viewer.html?file=https://srijan2025-hub.github.io/physicsstorage1/HCVVol2.pdf",
     drive: "#",
     download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf"
   },
   {
-    name: "DC Pandey Mechanics",
+    name: "Soln. Of HCV Vol. 1&2 ",
     size: "12.8 MB",
-    github: "#",
+    github: "https://mozilla.github.io/pdf.js/web/viewer.html?file=https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     drive: "#",
-    download: "#"
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
   },
   {
-    name: "DC Pandey Electricity",
+    name: "DC Pandey Mechanics 1",
     size: "14.1 MB",
     github: "#",
     drive: "#",
