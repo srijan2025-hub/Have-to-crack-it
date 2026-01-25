@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Physics Library</title>
+  <title>Study Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="physics.css" />
 </head>
@@ -11,8 +11,14 @@
 
 <header>
   <div class="title">
-    <h1>⚛ Physics Books</h1>
-    <input id="searchInput" type="text" placeholder="Search physics books..." />
+    <h1>📚 Study Library</h1>
+    <input id="searchInput" type="text" placeholder="Search books..." />
+
+    <div class="tabs">
+      <button class="tab active" data-subject="physics">Physics</button>
+      <button class="tab" data-subject="chemistry">Chemistry</button>
+      <button class="tab" data-subject="maths">Maths</button>
+    </div>
   </div>
 
   <div class="controls">
@@ -24,7 +30,7 @@
 <main id="bookGrid"></main>
 
 <footer>
-  <p>Neon Physics Library • GitHub Pages</p>
+  Neon Study Library • Fast • AMOLED • Offline-ready
 </footer>
 
 <!-- AUTHOR PANEL -->
