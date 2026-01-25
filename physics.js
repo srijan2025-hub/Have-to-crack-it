@@ -4,7 +4,7 @@ const CATEGORY_COLORS = {
   c2: "#ff004f",   // Red
   c3: "#7cff00",
   c4: "#00e5ff",
-  deflt: "#00ffff"
+  default: "#00ffff"
 };
 
 const books = [
