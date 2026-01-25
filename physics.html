@@ -10,21 +10,31 @@
 <body class="dark">
 
 <header>
-  <div>
+  <div class="title">
     <h1>⚛ Physics Books</h1>
-    <input type="text" id="searchInput" placeholder="Search physics books..." />
+    <input id="searchInput" type="text" placeholder="Search physics books..." />
   </div>
 
   <div class="controls">
+    <button id="authorBtn">👤</button>
     <button id="themeToggle">🌙</button>
   </div>
 </header>
 
-<main class="grid" id="bookGrid"></main>
+<main id="bookGrid"></main>
 
 <footer>
   <p>Neon Physics Library • GitHub Pages</p>
 </footer>
+
+<!-- AUTHOR PANEL -->
+<div id="authorPanel">
+  <div class="author-header">
+    <h3>Authors</h3>
+    <button id="closeAuthor">✕</button>
+  </div>
+  <div id="authorList"></div>
+</div>
 
 <script src="physics.js"></script>
 </body>
