@@ -9,16 +9,16 @@ const CATEGORY_COLORS = {
 
 const books = [
   {
-    name: "Concepts of Physics – Vol 1",
+    name: "Concepts Of Physics HCV– Vol 1",
     size: "18.2 MB",
     category: "hcv",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1.pdf",
-    gdrive: "#",
+    gdrive: "www.google.com",
     drive: "#",
     download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
   },
   {
-    name: "Concepts of Physics – Vol 2",
+    name: "Concepts of Physics HCV– Vol 2",
     size: "21.4 MB",
     category: "hcv",
     pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol2.pdf",
@@ -27,13 +27,58 @@ const books = [
     download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf"
   },
   {
-    name: "DC Pandey – Mechanics 1",
+    name: "Soln. Of HCV Vol. 1&2 both",
     size: "14.1 MB",
-    category: "dcp",
-    pdf: "#",
+    category: "hcv",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
     gdrive: "#",
     drive: "#",
-    download: "#"
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  },
+  {
+    name: "Soln. Of HCV Vol. 1&2 both",
+    size: "14.1 MB",
+    category: "dcp",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
+    gdrive: "#",
+    drive: "#",
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  },
+  {
+    name: "Soln. Of HCV Vol. 1&2 both",
+    size: "14.1 MB",
+    category: "dcp",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
+    gdrive: "#",
+    drive: "#",
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  },
+  {
+    name: "Soln. Of HCV Vol. 1&2 both",
+    size: "14.1 MB",
+    category: "dcp",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
+    gdrive: "#",
+    drive: "#",
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  },
+  {
+    name: "Soln. Of HCV Vol. 1&2 both",
+    size: "14.1 MB",
+    category: "dcp",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
+    gdrive: "#",
+    drive: "#",
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  },
+  {
+    name: "Soln. Of HCV Vol. 1&2 both",
+    size: "14.1 MB",
+    category: "dcp",
+    pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
+    gdrive: "#",
+    drive: "#",
+    download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
   }
 ];
 
