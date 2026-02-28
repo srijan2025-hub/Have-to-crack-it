@@ -13,14 +13,12 @@
   <div class="title">
     <h1>📚 Study Library</h1>
     <input id="searchInput" type="text" placeholder="Search books..." />
-
-   <div class="tabs">
-   </div>
+    <div class="tabs"></div>
   </div>
 
   <div class="controls">
-    <button id="authorBtn">👤</button>
-    <button id="themeToggle">🌙</button>
+    <button id="authorBtn" aria-label="Filter by Author">👤</button>
+    <button id="themeToggle" aria-label="Toggle Light/Dark Theme">🌙</button>
   </div>
 </header>
 
@@ -30,11 +28,10 @@
   Neon Study Library • Fast • AMOLED • Offline-ready
 </footer>
 
-<!-- AUTHOR PANEL -->
 <div id="authorPanel">
   <div class="author-header">
     <h3>Authors</h3>
-    <button id="closeAuthor">✕</button>
+    <button id="closeAuthor" aria-label="Close panel">✕</button>
   </div>
   <div id="authorList"></div>
 </div>
