@@ -88,9 +88,52 @@ header {
 /* GRID */
 #bookGrid {
   padding: 25px;
+}
+
+/* --- AUTHOR FOLDING STYLES --- */
+.author-section {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.author-header-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: rgba(51, 65, 85, 0.2);
+  border-left: 4px solid #00ffff;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.author-header-toggle:hover {
+  background: rgba(51, 65, 85, 0.4);
+}
+
+.author-header-toggle h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.author-header-toggle .arrow {
+  transition: transform 0.3s ease;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Inner Grid for each author's books */
+.author-books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
+}
+
+.author-books-grid.collapsed {
+  display: none;
 }
 
 /* BOOK CARD — THIN NEON BORDER */
@@ -98,11 +141,9 @@ header {
   position: relative;
   padding: 18px;
   border-radius: 16px;
-
-  /* ⭐ THIN NEON BORDER */
   border: 1px solid var(--neon);
-
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 1; /* Keeps the glow perfectly attached */
 }
 
 .book:hover {
