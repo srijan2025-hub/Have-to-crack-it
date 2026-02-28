@@ -145,7 +145,7 @@ let selectedAuthors = new Set();
 /* AUTHORS FILTER (SIDEBAR) */
 if (authorList) {
   const authors = [...new Set(books.flatMap(b => b.authors))];
-  // Sort the sidebar list alphabetically too!
+  // Sort the sidebar list alphabetically
   authors.sort();
   
   authorList.innerHTML = authors.map(a => `
@@ -273,6 +273,21 @@ function renderBooks() {
   // Add the final fragment to the DOM
   grid.appendChild(frag);
 }
+
+/* 11-SECOND GLOBAL NEON CLICK EFFECT */
+const neonOverlay = document.getElementById('neonClickOverlay');
+let neonTimer;
+
+document.addEventListener('click', () => {
+  if (!neonOverlay) return;
+  
+  clearTimeout(neonTimer);
+  neonOverlay.classList.add('active');
+  
+  neonTimer = setTimeout(() => {
+    neonOverlay.classList.remove('active');
+  }, 11000);
+});
 
 /* INIT */
 renderBooks();
