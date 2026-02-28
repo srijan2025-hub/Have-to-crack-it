@@ -142,9 +142,12 @@ const toggle = document.getElementById("themeToggle");
 let searchTerm = "";
 let selectedAuthors = new Set();
 
-/* AUTHORS FILTER */
+/* AUTHORS FILTER (SIDEBAR) */
 if (authorList) {
   const authors = [...new Set(books.flatMap(b => b.authors))];
+  // Sort the sidebar list alphabetically too!
+  authors.sort();
+  
   authorList.innerHTML = authors.map(a => `
     <label>
       <input type="checkbox" value="${a.toLowerCase()}"> ${a}
@@ -158,26 +161,32 @@ if (authorList) {
   });
 }
 
-/* AUTHOR PANEL */
-authorBtn && (authorBtn.onclick = () => authorPanel.classList.add("open"));
-closeAuthor && (closeAuthor.onclick = () => authorPanel.classList.remove("open"));
+/* AUTHOR PANEL TOGGLE */
+if (authorBtn && authorPanel && closeAuthor) {
+  authorBtn.addEventListener("click", () => authorPanel.classList.add("open"));
+  closeAuthor.addEventListener("click", () => authorPanel.classList.remove("open"));
+}
 
 /* THEME TOGGLE */
-toggle && (toggle.onclick = () => {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-  toggle.textContent = document.body.classList.contains("dark") ? "🌙" : "☀️";
-});
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+    toggle.textContent = document.body.classList.contains("dark") ? "🌙" : "☀️";
+  });
+}
 
 /* SEARCH */
 let timer;
-searchInput && searchInput.addEventListener("input", e => {
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    searchTerm = e.target.value.toLowerCase();
-    renderBooks();
-  }, 150);
-});
+if (searchInput) {
+  searchInput.addEventListener("input", e => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      searchTerm = e.target.value.toLowerCase();
+      renderBooks();
+    }, 150);
+  });
+}
 
 /* RENDER */
 function renderBooks() {
@@ -186,33 +195,82 @@ function renderBooks() {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
 
-  for (const book of processedBooks) {
-    if (searchTerm && !book.nameLC.includes(searchTerm)) continue;
-    if (selectedAuthors.size && !book.authorsLC.some(a => selectedAuthors.has(a))) continue;
+  // 1. Filter the books
+  const filteredBooks = processedBooks.filter(book => {
+    if (searchTerm && !book.nameLC.includes(searchTerm)) return false;
+    if (selectedAuthors.size && !book.authorsLC.some(a => selectedAuthors.has(a))) return false;
+    return true;
+  });
 
-    const card = document.createElement("div");
-    card.className = "book";
-    card.style.setProperty("--neon", CATEGORY_COLORS[book.category] || CATEGORY_COLORS.default);
-
-    const viewer =
-      `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
-
-    card.innerHTML = `
-      <div class="book-content">
-        <h3>${book.name}</h3>
-        <div class="size">📦 ${book.size}</div>
-        <div class="actions">
-          <a href="${viewer}" target="_blank">View</a>
-          <a href="${book.gdrive}" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
-          <a href="${book.drive}" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
-          <a href="${book.download}" download>Download</a>
-        </div>
-      </div>
-    `;
-
-    frag.appendChild(card);
+  // 2. Group the books by Author
+  const groupedBooks = {};
+  for (const book of filteredBooks) {
+    const mainAuthor = book.authors[0] || "Unknown Author";
+    if (!groupedBooks[mainAuthor]) {
+      groupedBooks[mainAuthor] = [];
+    }
+    groupedBooks[mainAuthor].push(book);
   }
 
+  // 3. Sort Authors Alphabetically and Render
+  const sortedAuthors = Object.keys(groupedBooks).sort();
+  
+  for (const author of sortedAuthors) {
+    const authorBooks = groupedBooks[author];
+
+    // Section Wrapper
+    const section = document.createElement("div");
+    section.className = "author-section";
+
+    // Clickable Header
+    const header = document.createElement("div");
+    header.className = "author-header-toggle";
+    header.innerHTML = `
+      <h2>${author}</h2>
+      <span class="arrow">↓</span>
+    `;
+
+    // Inner Grid Container
+    const booksContainer = document.createElement("div");
+    booksContainer.className = "author-books-grid";
+
+    // Toggle (Folding) Event Listener
+    header.addEventListener("click", () => {
+      booksContainer.classList.toggle("collapsed");
+      const arrow = header.querySelector(".arrow");
+      arrow.style.transform = booksContainer.classList.contains("collapsed") ? "rotate(-90deg)" : "rotate(0deg)";
+    });
+
+    // Populate the inner grid with cards
+    for (const book of authorBooks) {
+      const card = document.createElement("div");
+      card.className = "book";
+      card.style.setProperty("--neon", CATEGORY_COLORS[book.category] || CATEGORY_COLORS.default);
+
+      const viewer = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
+
+      card.innerHTML = `
+        <div class="book-content">
+          <h3>${book.name}</h3>
+          <div class="size">📦 ${book.size}</div>
+          <div class="actions">
+            <a href="${viewer}" target="_blank">View</a>
+            <a href="${book.gdrive}" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
+            <a href="${book.drive}" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
+            <a href="${book.download}" download>Download</a>
+          </div>
+        </div>
+      `;
+      booksContainer.appendChild(card);
+    }
+
+    // Attach to the fragment
+    section.appendChild(header);
+    section.appendChild(booksContainer);
+    frag.appendChild(section);
+  }
+
+  // Add the final fragment to the DOM
   grid.appendChild(frag);
 }
 
