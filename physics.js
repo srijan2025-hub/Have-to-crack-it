@@ -8,6 +8,13 @@ const CATEGORY_COLORS = {
   default: "#00ffff"
 };
 
+/* AUTHOR BACKGROUND SORTING ORDER (Hidden from users) */
+const AUTHOR_ORDER = {
+  "H.C. Verma": 1,
+  "D.C. Pandey": 2,
+  "Career Will": 3
+};
+
 /* BOOK DATA */
 const books = [
 {
@@ -145,14 +152,22 @@ let selectedAuthors = new Set();
 /* AUTHORS FILTER (SIDEBAR) */
 if (authorList) {
   const authors = [...new Set(books.flatMap(b => b.authors))];
-  // Sort the sidebar list alphabetically
-  authors.sort();
   
-  authorList.innerHTML = authors.map(a => `
-    <label>
-      <input type="checkbox" value="${a.toLowerCase()}"> ${a}
-    </label>
-  `).join("");
+  // Sort the sidebar list by your custom serial numbers!
+  authors.sort((a, b) => {
+    const orderA = AUTHOR_ORDER[a] || 999;
+    const orderB = AUTHOR_ORDER[b] || 999;
+    return orderA - orderB;
+  });
+  
+  authorList.innerHTML = authors.map(a => {
+    // Only showing the author's name cleanly!
+    return `
+      <label>
+        <input type="checkbox" value="${a.toLowerCase()}"> ${a}
+      </label>
+    `;
+  }).join("");
 
   authorList.addEventListener("change", e => {
     const a = e.target.value;
@@ -212,20 +227,17 @@ function renderBooks() {
     groupedBooks[mainAuthor].push(book);
   }
 
-  // 3. Sort Authors by Custom Order and Render
-  const customAuthorOrder = ["H.C. Verma", "D.C. Pandey", "Career Will"];
-  
+  // 3. Sort Authors by Background Serial Number and Render
   const sortedAuthors = Object.keys(groupedBooks).sort((a, b) => {
-    let indexA = customAuthorOrder.indexOf(a);
-    let indexB = customAuthorOrder.indexOf(b);
-    
-    // If an author is not in our custom list, put them at the very bottom
-    if (indexA === -1) indexA = 999;
-    if (indexB === -1) indexB = 999;
-    
-    return indexA - indexB;
+    const orderA = AUTHOR_ORDER[a] || 999;
+    const orderB = AUTHOR_ORDER[b] || 999;
+    return orderA - orderB;
   });
   
+  // Loop to draw each author onto the page
+  for (const author of sortedAuthors) {
+    const authorBooks = groupedBooks[author];
+
     // Section Wrapper
     const section = document.createElement("div");
     section.className = "author-section";
@@ -233,6 +245,8 @@ function renderBooks() {
     // Clickable Header
     const header = document.createElement("div");
     header.className = "author-header-toggle";
+    
+    // Numbers removed here! Just displaying the author's name cleanly.
     header.innerHTML = `
       <h2>${author}</h2>
       <span class="arrow">↓</span>
@@ -276,7 +290,7 @@ function renderBooks() {
     section.appendChild(header);
     section.appendChild(booksContainer);
     frag.appendChild(section);
-  }
+  } // END OF THE LOOP
 
   // Add the final fragment to the DOM
   grid.appendChild(frag);
@@ -299,3 +313,4 @@ document.addEventListener('click', () => {
 
 /* INIT */
 renderBooks();
+  
