@@ -1,5 +1,5 @@
 :root {
-  --bg-dark: #000000;      /* TRUE AMOLED */
+  --bg-dark: #000000;
   --bg-light: #f8fafc;
   --card-dark: #020617;
   --card-light: #ffffff;
@@ -51,29 +51,6 @@ header {
   outline: none;
 }
 
-/* SUBJECT TABS */
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.tab {
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid #334155;
-  background: transparent;
-  color: inherit;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.tab.active {
-  background: #00ffff;
-  color: #000;
-  box-shadow: 0 0 10px #00ffff;
-}
-
 /* CONTROLS */
 .controls button {
   background: transparent;
@@ -88,10 +65,10 @@ header {
 /* GRID */
 #bookGrid {
   padding: 25px;
-  min-height: 60vh; /* Keeps footer pushed down */
+  min-height: 60vh;
 }
 
-/* --- AUTHOR FOLDING STYLES --- */
+/* AUTHOR SECTION */
 .author-section {
   margin-bottom: 30px;
   width: 100%;
@@ -115,36 +92,19 @@ header {
   background: rgba(51, 65, 85, 0.4);
 }
 
-.author-header-toggle h2 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.author-header-toggle .arrow {
-  transition: transform 0.3s ease;
-  font-weight: bold;
-  display: inline-block;
-}
-
-/* Inner Grid for each author's books */
 .author-books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 
-.author-books-grid.collapsed {
-  display: none;
-}
-
-/* BOOK CARD — THIN NEON BORDER */
+/* BOOK CARD */
 .book {
   position: relative;
   padding: 18px;
   border-radius: 16px;
   border: 1px solid var(--neon);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  z-index: 1; 
 }
 
 .book:hover {
@@ -152,7 +112,6 @@ header {
   box-shadow: 0 0 8px var(--neon);
 }
 
-/* SOFT NEON GLOW */
 .book::before {
   content: "";
   position: absolute;
@@ -188,10 +147,10 @@ body.light .book::after {
   margin-bottom: 12px;
 }
 
-/* NEON BUTTONS */
+/* BUTTONS */
 .actions {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
 
@@ -212,140 +171,53 @@ body.light .book::after {
   box-shadow: 0 0 10px var(--neon);
 }
 
-.actions a.disabled {
-  opacity: 0.35;
-  pointer-events: none;
-  border-style: dashed;
-}
+/* ========================= */
+/* FOOTER WITH 11s GLOW */
+/* ========================= */
 
-/* AUTHOR PANEL */
-#authorPanel {
-  position: fixed;
-  top: 0;
-  right: -280px;
-  width: 280px;
-  height: 100%;
-  background: #000;
-  border-left: 1px solid #1e293b;
-  padding: 16px;
-  transition: right 0.3s ease;
-  z-index: 200;
-}
-
-#authorPanel.open {
-  right: 0;
-}
-
-.author-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-#authorList label {
-  display: flex;
-  gap: 8px;
-  padding: 6px 0;
-  cursor: pointer;
-}
-
-/* --- PROFESSIONAL 3D FOOTER --- */
 .professional-footer {
-  background-color: #000000; /* True AMOLED Black */
-  border-radius: 30px 30px 0 0; 
+  background-color: #000;
+  border-radius: 30px 30px 0 0;
   padding: 40px 20px 20px;
   margin-top: 50px;
   text-align: center;
-  
-  /* NEW: Animated AI Neon Border and Glow for Footer */
+
   border-top: 4px solid #00e5ff;
-  animation: neonFooterPulse 4s linear infinite;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Keyframes to make the footer border shift colors like the click overlay */
-@keyframes neonFooterPulse {
-  0% { box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); border-color: #ff004f; }
-  25% { box-shadow: 0 -5px 25px rgba(0, 229, 255, 0.5), inset 0 2px 10px rgba(0, 229, 255, 0.2); border-color: #00e5ff; }
-  50% { box-shadow: 0 -5px 25px rgba(124, 255, 0, 0.5), inset 0 2px 10px rgba(124, 255, 0, 0.2); border-color: #7cff00; }
-  75% { box-shadow: 0 -5px 25px rgba(255, 215, 0, 0.5), inset 0 2px 10px rgba(255, 215, 0, 0.2); border-color: #ffd700; }
-  100% { box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); border-color: #ff004f; }
+/* This class is added by your JS */
+.professional-footer.neon-active {
+  animation: footerGlow 3s linear infinite;
 }
 
+@keyframes footerGlow {
+  0% {
+    border-color: #ff004f;
+    box-shadow: 0 -6px 25px rgba(255, 0, 79, 0.6);
+  }
+  25% {
+    border-color: #00e5ff;
+    box-shadow: 0 -6px 25px rgba(0, 229, 255, 0.6);
+  }
+  50% {
+    border-color: #7cff00;
+    box-shadow: 0 -6px 25px rgba(124, 255, 0, 0.6);
+  }
+  75% {
+    border-color: #ffd700;
+    box-shadow: 0 -6px 25px rgba(255, 215, 0, 0.6);
+  }
+  100% {
+    border-color: #ff004f;
+    box-shadow: 0 -6px 25px rgba(255, 0, 79, 0.6);
+  }
+}
+
+/* FOOTER CONTENT */
 .footer-content {
   max-width: 800px;
   margin: 0 auto;
-}
-
-.footer-home {
-  margin-bottom: 35px;
-}
-
-.home-btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background: #020617;
-  color: #00ffff;
-  text-decoration: none;
-  border: 1px solid #00ffff;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  box-shadow: 0 6px 0 #008b8b, 0 10px 15px rgba(0, 255, 255, 0.2);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.home-btn:active {
-  transform: translateY(6px);
-  box-shadow: 0 0 0 #008b8b, 0 2px 5px rgba(0, 255, 255, 0.2);
-}
-
-/* NEW: Subject Links styled like text to match social media words */
-.footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 40px;
-}
-
-.footer-links-grid a {
-  color: #00ffff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: text-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.footer-links-grid a:hover {
-  text-shadow: 0 0 12px #00ffff;
-  transform: translateY(-2px);
-}
-
-.footer-contact h3 {
-  color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.social-links a {
-  color: #00ffff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: text-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.social-links a:hover {
-  text-shadow: 0 0 12px #00ffff;
-  transform: translateY(-2px);
 }
 
 .footer-bottom {
@@ -353,29 +225,4 @@ body.light .book::after {
   opacity: 0.5;
   padding-top: 20px;
   border-top: 1px solid #1e293b;
-}
-
-/* --- AI MODE 11-SECOND NEON CLICK OVERLAY --- */
-#neonClickOverlay {
-  position: fixed;
-  bottom: 0;            
-  left: 0;
-  width: 100vw;
-  height: 80px;           /* only footer area height */
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0;
-  box-sizing: border-box;
-  transition: opacity 0.3s ease;
-}
-#neonClickOverlay.active {
-  opacity: 1;
-  border-top: 4px solid transparent;  /* only top border */
-  border-image: linear-gradient(45deg, #ff004f, #00e5ff, #7cff00, #ffd700) 1;
-  box-shadow: 0 -5px 25px rgba(0, 229, 255, 0.5);
-  animation: colorShift 3s linear infinite;
-}
-@keyframes colorShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
 }
