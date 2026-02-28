@@ -53,7 +53,8 @@ const books = [
   size: "—",
   category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics1.pdf",
-  gdrive: "https://drive.google.com/file/d/1Ft7LyjA3FLoRYhTCDHWPEu_aYbhWaeau/view?usp=drivesdk",
+  // Updated to /preview so it stays in the browser!
+  gdrive: "https://drive.google.com/file/d/1Ft7LyjA3FLoRYhTCDHWPEu_aYbhWaeau/preview",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics1.pdf"
 },
@@ -271,14 +272,15 @@ function renderBooks() {
 
       const viewer = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
 
+      // THIS IS WHERE target="_blank" WAS ADDED FOR GDRIVE AND DRIVE!
       card.innerHTML = `
         <div class="book-content">
           <h3>${book.name}</h3>
           <div class="size">📦 ${book.size}</div>
           <div class="actions">
             <a href="${viewer}" target="_blank">View</a>
-            <a href="${book.gdrive}" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
-            <a href="${book.drive}" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
+            <a href="${book.gdrive}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
+            <a href="${book.drive}" target="_blank" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
             <a href="${book.download}" download>Download</a>
           </div>
         </div>
@@ -313,4 +315,3 @@ document.addEventListener('click', () => {
 
 /* INIT */
 renderBooks();
-  
