@@ -358,25 +358,23 @@ body.light .book::after {
 /* --- AI MODE 11-SECOND NEON CLICK OVERLAY --- */
 #neonClickOverlay {
   position: fixed;
-  top: 0;
+  bottom: 0;            
   left: 0;
   width: 100vw;
-  height: 100vh;
-  pointer-events: none; 
+  height: 80px;           /* only footer area height */
+  pointer-events: none;
   z-index: 9999;
   opacity: 0;
   box-sizing: border-box;
   transition: opacity 0.3s ease;
 }
-
 #neonClickOverlay.active {
   opacity: 1;
-  border: 4px solid transparent;
+  border-top: 4px solid transparent;  /* only top border */
   border-image: linear-gradient(45deg, #ff004f, #00e5ff, #7cff00, #ffd700) 1;
-  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 -5px 25px rgba(0, 229, 255, 0.5);
   animation: colorShift 3s linear infinite;
 }
-
 @keyframes colorShift {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
