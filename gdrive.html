@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drive Viewer</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; }
+    iframe { width: 100%; height: 100%; border: none; }
+    
+    .back-btn { 
+      position: absolute; 
+      top: 15px; 
+      left: 15px; 
+      background: #020617; 
+      color: #00ffff; 
+      padding: 10px 20px; 
+      text-decoration: none; 
+      border-radius: 12px; 
+      font-family: system-ui, sans-serif; 
+      font-weight: bold; 
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      z-index: 100;
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover { background: #00ffff; color: #000; box-shadow: 0 0 20px #00ffff; }
+  </style>
+</head>
+<body>
+
+  <a href="physics.html" class="back-btn">← Back to Library</a>
+
+  <iframe id="pdfViewer" src=""></iframe>
+
+  <script>
+    // This script grabs the Drive link we pass it and loads it into the box
+    const urlParams = new URLSearchParams(window.location.search);
+    const driveLink = urlParams.get('url');
+    if(driveLink) {
+      document.getElementById('pdfViewer').src = driveLink;
+    }
+  </script>
+
+</body>
+</html>
