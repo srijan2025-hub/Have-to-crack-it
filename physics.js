@@ -212,12 +212,20 @@ function renderBooks() {
     groupedBooks[mainAuthor].push(book);
   }
 
-  // 3. Sort Authors Alphabetically and Render
-  const sortedAuthors = Object.keys(groupedBooks).sort();
+  // 3. Sort Authors by Custom Order and Render
+  const customAuthorOrder = ["H.C. Verma", "D.C. Pandey", "Career Will"];
   
-  for (const author of sortedAuthors) {
-    const authorBooks = groupedBooks[author];
-
+  const sortedAuthors = Object.keys(groupedBooks).sort((a, b) => {
+    let indexA = customAuthorOrder.indexOf(a);
+    let indexB = customAuthorOrder.indexOf(b);
+    
+    // If an author is not in our custom list, put them at the very bottom
+    if (indexA === -1) indexA = 999;
+    if (indexB === -1) indexB = 999;
+    
+    return indexA - indexB;
+  });
+  
     // Section Wrapper
     const section = document.createElement("div");
     section.className = "author-section";
