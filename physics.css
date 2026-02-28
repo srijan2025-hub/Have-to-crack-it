@@ -144,7 +144,7 @@ header {
   border-radius: 16px;
   border: 1px solid var(--neon);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  z-index: 1; /* Keeps the glow perfectly attached */
+  z-index: 1; 
 }
 
 .book:hover {
@@ -253,12 +253,23 @@ body.light .book::after {
 /* --- PROFESSIONAL 3D FOOTER --- */
 .professional-footer {
   background-color: #000000; /* True AMOLED Black */
-  border-top: 2px solid #1e293b;
   border-radius: 30px 30px 0 0; 
-  box-shadow: 0 -10px 30px rgba(0, 255, 255, 0.05), inset 0 2px 10px rgba(255, 255, 255, 0.05);
   padding: 40px 20px 20px;
   margin-top: 50px;
   text-align: center;
+  
+  /* NEW: Animated AI Neon Border and Glow for Footer */
+  border-top: 4px solid #00e5ff;
+  animation: neonFooterPulse 4s linear infinite;
+}
+
+/* Keyframes to make the footer border shift colors like the click overlay */
+@keyframes neonFooterPulse {
+  0% { box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); border-color: #ff004f; }
+  25% { box-shadow: 0 -5px 25px rgba(0, 229, 255, 0.5), inset 0 2px 10px rgba(0, 229, 255, 0.2); border-color: #00e5ff; }
+  50% { box-shadow: 0 -5px 25px rgba(124, 255, 0, 0.5), inset 0 2px 10px rgba(124, 255, 0, 0.2); border-color: #7cff00; }
+  75% { box-shadow: 0 -5px 25px rgba(255, 215, 0, 0.5), inset 0 2px 10px rgba(255, 215, 0, 0.2); border-color: #ffd700; }
+  100% { box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); border-color: #ff004f; }
 }
 
 .footer-content {
@@ -289,6 +300,7 @@ body.light .book::after {
   box-shadow: 0 0 0 #008b8b, 0 2px 5px rgba(0, 255, 255, 0.2);
 }
 
+/* NEW: Subject Links styled like text to match social media words */
 .footer-links-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -297,20 +309,14 @@ body.light .book::after {
 }
 
 .footer-links-grid a {
-  color: #e5e7eb;
+  color: #00ffff;
   text-decoration: none;
-  padding: 12px;
-  background: #0a0a0a;
-  border-radius: 10px;
-  border: 1px solid #1e293b;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  transition: text-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .footer-links-grid a:hover {
-  border-color: #00ffff;
-  color: #00ffff;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  text-shadow: 0 0 12px #00ffff;
   transform: translateY(-2px);
 }
 
@@ -333,12 +339,13 @@ body.light .book::after {
 .social-links a {
   color: #00ffff;
   text-decoration: none;
-  font-size: 1rem;
-  transition: text-shadow 0.3s ease;
+  font-size: 1.1rem;
+  transition: text-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .social-links a:hover {
   text-shadow: 0 0 12px #00ffff;
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
@@ -355,7 +362,7 @@ body.light .book::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none; /* Crucial: allows you to click through it */
+  pointer-events: none; 
   z-index: 9999;
   opacity: 0;
   box-sizing: border-box;
