@@ -272,19 +272,27 @@ function renderBooks() {
 
       const viewer = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
 
-      // THIS IS WHERE target="_blank" WAS ADDED FOR GDRIVE AND DRIVE!
+      // THIS IS THE BYPASS TRICK:
+      // If there is a real GDrive link, send it to our custom viewer instead!
+      const finalGDriveLink = book.gdrive !== "#" 
+        ? `gdrive.html?url=${encodeURIComponent(book.gdrive)}` 
+        : "#";
+
       card.innerHTML = `
         <div class="book-content">
           <h3>${book.name}</h3>
           <div class="size">📦 ${book.size}</div>
           <div class="actions">
             <a href="${viewer}" target="_blank">View</a>
-            <a href="${book.gdrive}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
+            
+            <a href="${finalGDriveLink}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
+            
             <a href="${book.drive}" target="_blank" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
             <a href="${book.download}" download>Download</a>
           </div>
         </div>
       `;
+
       booksContainer.appendChild(card);
     }
 
