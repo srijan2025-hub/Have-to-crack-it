@@ -46,7 +46,7 @@ const books = [
   size: "—",
   category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics1.pdf",
-  gdrive: "#",
+  gdrive: "https://drive.google.com/file/d/1Ft7LyjA3FLoRYhTCDHWPEu_aYbhWaeau/view?usp=drivesdk",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics1.pdf"
 },
