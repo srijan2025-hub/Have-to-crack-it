@@ -305,7 +305,7 @@ function renderBooks() {
           <div class="size">📦 ${book.size}</div>
           <div class="actions">
             <a href="${viewer}" target="_blank">View</a>
-            <a href="${finalGDriveLink}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
+            <a href="${finalGDriveLink}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">$cloud</a>
             <a href="${book.drive}" target="_blank" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
             <a href="${book.onedrive || "#"}" target="_blank" class="${!book.onedrive || book.onedrive === "#" ? "disabled" : ""}">OneDrive</a>
             <a href="${book.solution || "#"}" target="_blank" class="${!book.solution || book.solution === "#" ? "disabled" : ""}">Solution</a>
