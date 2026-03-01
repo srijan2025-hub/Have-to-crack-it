@@ -12,7 +12,8 @@ const CATEGORY_COLORS = {
 const AUTHOR_ORDER = {
   "H.C. Verma": 1,
   "D.C. Pandey": 2,
-  "Career Will": 3
+  "Vivrant Academy": 3,
+  "Dutta Paul Guchait": 4
 };
 
 /* BOOK DATA */
@@ -81,7 +82,7 @@ const books = [
   name: "DC Pandey – Waves & Thermodynamics",
   authors: ["D.C. Pandey"],
   size: "—",
-  category: "c3",
+  category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeywavesandthermodynamics.pdf",
   gdrive: "https://drive.google.com/file/d/1G1LrP7QYxRhc0N_8OihvpBZ5EzoK0xzZ/preview",
   drive: "https://drive.google.com/file/d/1G1LrP7QYxRhc0N_8OihvpBZ5EzoK0xzZ/view?usp=drive_link",
@@ -114,8 +115,8 @@ const books = [
   onedrive: "#"
 },
 {
-  name: "Career Will – Geometrical Optics Sheet",
-  authors: ["Career Will"],
+  name: "Vivrant _Geometrical Optics Sheet",
+  authors: ["Vibrant Academy"],
   size: "—",
   category: "c5",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet1geometricaloptics.pdf",
@@ -126,10 +127,10 @@ const books = [
   onedrive: "#"
 },
 {
-  name: "Career Will – Wave Optics Sheet 1",
-  authors: ["Career Will"],
+  name: "Vivrant _Wave Optics Sheet 1",
+  authors: ["Vivrant Academy"],
   size: "—",
-  category: "c6",
+  category: "c5",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet1waveoptics.pdf",
   gdrive: "https://drive.google.com/file/d/1SgUi2Ffc78-uZIwJFguH5vJYSb_RgiJD/preview",
   drive: "https://drive.google.com/file/d/1SgUi2Ffc78-uZIwJFguH5vJYSb_RgiJD/view?usp=drive_link",
@@ -138,14 +139,50 @@ const books = [
   onedrive: "#"
 },
 {
-  name: "Career Will – Wave Optics Sheet 2",
-  authors: ["Career Will"],
+  name: "Vibrant _Wave Optics Sheet 2",
+  authors: ["Vibrant Academy"],
   size: "—",
-  category: "c3",
+  category: "c5",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet2waveoptics.pdf",
   gdrive: "https://drive.google.com/file/d/1lWSlgVAW_Q9VLiZ9XYHTga89cXre5oLL/preview",
   drive: "https://drive.google.com/file/d/1lWSlgVAW_Q9VLiZ9XYHTga89cXre5oLL/view?usp=drive_link",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet2waveoptics.pdf",
+  solution: "#",
+  onedrive: "#"
+},
+{
+  name: "DPG Reflection_Refraction",
+  authors: ["Dutta Paul Guchait"],
+  size: "—",
+  category: "c4",
+  pdf: "#",
+  gdrive: "#",
+  drive: "#",
+  download: "#",
+  solution: "#",
+  onedrive: "#"
+},
+{
+  name: "DPG Reflection_Refraction",
+  authors: ["Dutta Paul Guchait"],
+  size: "—",
+  category: "c4",
+  pdf: "#",
+  gdrive: "#",
+  drive: "#",
+  download: "#",
+  solution: "#",
+  onedrive: "#"
+},
+{
+  name: "DPG Reflection_Refraction",
+  authors: ["Dutta Paul Guchait"],
+  size: "—",
+  category: "c4",
+  pdf: "#",
+  gdrive: "#",
+  drive: "#",
+  download: "#",
   solution: "#",
   onedrive: "#"
 }
