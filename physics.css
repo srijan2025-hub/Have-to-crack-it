@@ -162,14 +162,16 @@ body.light .book::after {
   margin-bottom: 12px;
 }
 
-/* NEON BUTTONS */
+/* FLEXIBLE BUTTONS - Automatically fits 4, 5, 6, or more buttons! */
 .actions {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .actions a {
+  flex: 1;
+  min-width: 50px; 
   text-decoration: none;
   text-align: center;
   padding: 7px 0;
@@ -367,58 +369,68 @@ body.light .book::after {
 }
 
 /* =========================================
-   🎯 FOCUS MODE (BLACK & WHITE OVERRIDES)
+   🎯 FOCUS MODE (BULLETPROOF B&W OVERRIDES)
    ========================================= */
 
-/* Use the * wildcard so it overpowers inline book card colors! */
-body.dark.focus-mode * {
-  --neon: #ffffff !important; 
-}
-
-body.light.focus-mode * {
-  --neon: #000000 !important;
-}
-
-/* Disable all distracting glows and animations */
-body.focus-mode .book:hover,
-body.focus-mode .actions a:hover,
-body.focus-mode .premium-home-btn,
-body.focus-mode .premium-home-btn:hover,
-body.focus-mode .author-header-toggle:hover {
-  box-shadow: none !important;
-}
-
+/* Hide all neon glows and footer animations universally */
 body.focus-mode .book::before,
 body.focus-mode .premium-footer::before {
-  display: none !important; /* Hides fuzzy shadows and gradients */
+  display: none !important;
+}
+body.focus-mode .book:hover,
+body.focus-mode .premium-home-btn:hover {
+  box-shadow: none !important;
+  transform: none !important;
 }
 
-/* Correct button contrast in Focus Mode */
-body.dark.focus-mode .actions a:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
+/* DARK MODE OVERRIDES: Force borders & buttons to purely WHITE */
+body.dark.focus-mode .book,
+body.dark.focus-mode .actions a {
+  border-color: #ffffff !important;
 }
-
-body.light.focus-mode .actions a:hover {
-  background: #000000 !important;
+body.dark.focus-mode .actions a {
   color: #ffffff !important;
 }
-
+body.dark.focus-mode .actions a:hover,
 body.dark.focus-mode .premium-home-btn {
   background: #ffffff !important;
   color: #000000 !important;
 }
+body.dark.focus-mode .author-header-toggle {
+  border-left-color: #ffffff !important;
+}
+body.dark.focus-mode .premium-footer {
+  border-top-color: #ffffff !important;
+}
+body.dark.focus-mode .subject-grid a:hover,
+body.dark.focus-mode .social-list a:hover {
+  color: #ffffff !important;
+  font-weight: bold;
+  transform: none !important;
+}
 
+/* LIGHT MODE OVERRIDES: Force borders & buttons to purely BLACK */
+body.light.focus-mode .book,
+body.light.focus-mode .actions a {
+  border-color: #000000 !important;
+}
+body.light.focus-mode .actions a {
+  color: #000000 !important;
+}
+body.light.focus-mode .actions a:hover,
 body.light.focus-mode .premium-home-btn {
   background: #000000 !important;
   color: #ffffff !important;
 }
-
-/* Disable footer slide animations in Focus Mode */
-body.focus-mode .subject-grid a:hover, 
-body.focus-mode .social-list a:hover,
-body.focus-mode .footer-legal a:hover {
+body.light.focus-mode .author-header-toggle {
+  border-left-color: #000000 !important;
+}
+body.light.focus-mode .premium-footer {
+  border-top-color: #000000 !important;
+}
+body.light.focus-mode .subject-grid a:hover,
+body.light.focus-mode .social-list a:hover {
+  color: #000000 !important;
   font-weight: bold;
   transform: none !important;
-  color: var(--neon) !important;
 }
