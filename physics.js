@@ -192,6 +192,20 @@ if (toggle) {
   });
 }
 
+/* FOCUS MODE TOGGLE */
+const focusBtn = document.getElementById("focusBtn");
+if (focusBtn) {
+  focusBtn.addEventListener("click", () => {
+    // This turns Focus Mode on and off
+    document.body.classList.toggle("focus-mode");
+    
+    // Change the icon so the user knows it is active
+    focusBtn.textContent = document.body.classList.contains("focus-mode") ? "👓" : "🎯";
+  });
+}
+
+
+
 /* SEARCH */
 let timer;
 if (searchInput) {
