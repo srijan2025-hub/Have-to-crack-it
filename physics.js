@@ -12,7 +12,7 @@ const CATEGORY_COLORS = {
 const AUTHOR_ORDER = {
   "H.C. Verma": 1,
   "D.C. Pandey": 2,
-  "Vivrant Academy": 3,
+  "Vibrant Academy": 3,
   "Dutta Paul Guchait": 4
 };
 
@@ -115,7 +115,7 @@ const books = [
   onedrive: "#"
 },
 {
-  name: "Vivrant _Geometrical Optics Sheet",
+  name: "Vibrant _Geometrical Optics Sheet",
   authors: ["Vibrant Academy"],
   size: "—",
   category: "c5",
@@ -127,8 +127,8 @@ const books = [
   onedrive: "#"
 },
 {
-  name: "Vivrant _Wave Optics Sheet 1",
-  authors: ["Vivrant Academy"],
+  name: "Vibrant _Wave Optics Sheet 1",
+  authors: ["Vibrant Academy"],
   size: "—",
   category: "c5",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet1waveoptics.pdf",
