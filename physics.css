@@ -279,3 +279,63 @@ body.light .book::after {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
 }
+
+/* =========================================
+   🎯 FOCUS MODE (BLACK & WHITE OVERRIDES)
+   ========================================= */
+
+/* 1. Force the main neon color to pure White (Dark Mode) or pure Black (Light Mode) */
+body.dark.focus-mode {
+  --neon: #ffffff !important; 
+}
+
+body.light.focus-mode {
+  --neon: #000000 !important;
+}
+
+/* 2. Turn off ALL glowing shadows and animations for a clean, distraction-free look */
+body.focus-mode .book:hover,
+body.focus-mode .actions a:hover,
+body.focus-mode .tab.active,
+body.focus-mode .home-btn,
+body.focus-mode .home-btn:active,
+body.focus-mode .author-header-toggle:hover {
+  box-shadow: none !important;
+}
+
+/* 3. Hide the blurry background glow behind the book cards */
+body.focus-mode .book::before {
+  display: none !important;
+}
+
+/* 4. Stop the footer's color-shifting animation and make it a solid line */
+body.focus-mode .professional-footer {
+  animation: none !important;
+  border-top: 4px solid var(--neon) !important;
+}
+
+/* 5. Fix the hover colors on the buttons so they invert correctly in Focus Mode */
+body.dark.focus-mode .actions a:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light.focus-mode .actions a:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* 6. Change footer text colors to match the Focus Mode */
+body.focus-mode .footer-links-grid a,
+body.focus-mode .social-links a,
+body.focus-mode .home-btn {
+  color: var(--neon) !important;
+  border-color: var(--neon) !important;
+  text-shadow: none !important;
+}
+
+body.focus-mode .footer-links-grid a:hover,
+body.focus-mode .social-links a:hover {
+  font-weight: bold; /* Replaces the glow effect with bold text instead */
+}
+
