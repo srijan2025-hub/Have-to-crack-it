@@ -15,7 +15,6 @@
   font-family: system-ui, sans-serif;
 }
 
-/* BODY */
 body.dark {
   background: var(--bg-dark);
   color: var(--text-dark);
@@ -62,13 +61,13 @@ header {
   color: inherit;
 }
 
-/* GRID */
+/* MAIN GRID */
 #bookGrid {
   padding: 25px;
-  min-height: 60vh;
+  min-height: 50vh;
 }
 
-/* AUTHOR SECTION */
+/* AUTHOR FOLDING SECTION */
 .author-section {
   margin-bottom: 30px;
   width: 100%;
@@ -103,7 +102,6 @@ header {
   display: inline-block;
 }
 
-/* AUTHOR BOOK GRID */
 .author-books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -114,7 +112,7 @@ header {
   display: none;
 }
 
-/* BOOK CARD — THIN NEON BORDER */
+/* BOOK CARD — NEON BORDER */
 .book {
   position: relative;
   padding: 18px;
@@ -129,7 +127,6 @@ header {
   box-shadow: 0 0 8px var(--neon);
 }
 
-/* SOFT NEON GLOW */
 .book::before {
   content: "";
   position: absolute;
@@ -165,7 +162,7 @@ body.light .book::after {
   margin-bottom: 12px;
 }
 
-/* ACTION BUTTONS */
+/* NEON BUTTONS */
 .actions {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -195,7 +192,7 @@ body.light .book::after {
   border-style: dashed;
 }
 
-/* AUTHOR PANEL */
+/* AUTHOR SIDEBAR PANEL */
 #authorPanel {
   position: fixed;
   top: 0;
@@ -227,117 +224,128 @@ body.light .book::after {
   cursor: pointer;
 }
 
-/* FOOTER CONTAINER */
-.professional-footer {
+/* =========================================
+   🌟 PREMIUM MODERN FOOTER STYLES
+   ========================================= */
+.premium-footer {
   background-color: #000000;
-  border-radius: 30px 30px 0 0;
-  padding: 40px 20px 20px;
-  margin-top: 50px;
-  text-align: center;
-  border-top: 4px solid #00e5ff;
-  animation: neonFooterPulse 4s linear infinite;
+  padding: 70px 20px 20px;
+  margin-top: 60px;
+  position: relative;
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
 }
 
-@keyframes neonFooterPulse {
-  0% { border-color: #ff004f; box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); }
-  25% { border-color: #00e5ff; box-shadow: 0 -5px 25px rgba(0, 229, 255, 0.5), inset 0 2px 10px rgba(0, 229, 255, 0.2); }
-  50% { border-color: #7cff00; box-shadow: 0 -5px 25px rgba(124, 255, 0, 0.5), inset 0 2px 10px rgba(124, 255, 0, 0.2); }
-  75% { border-color: #ffd700; box-shadow: 0 -5px 25px rgba(255, 215, 0, 0.5), inset 0 2px 10px rgba(255, 215, 0, 0.2); }
-  100% { border-color: #ff004f; box-shadow: 0 -5px 25px rgba(255, 0, 79, 0.5), inset 0 2px 10px rgba(255, 0, 79, 0.2); }
+.premium-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  opacity: 0.8;
 }
 
-.footer-content {
-  max-width: 800px;
+.footer-main {
+  max-width: 1000px;
   margin: 0 auto;
-}
-
-.footer-home {
-  margin-bottom: 35px;
-}
-
-.home-btn {
-  display: inline-block;
-  padding: 12px 30px;
-  background: #020617;
-  color: #00ffff;
-  text-decoration: none;
-  border: 1px solid #00ffff;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  box-shadow: 0 6px 0 #008b8b, 0 10px 15px rgba(0, 255, 255, 0.2);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.home-btn:active {
-  transform: translateY(6px);
-  box-shadow: 0 0 0 #008b8b, 0 2px 5px rgba(0, 255, 255, 0.2);
-}
-
-/* SPACIOUS FOOTER LINKS */
-.footer-links-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px; 
-  margin-bottom: 45px;
-  padding: 0 10px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
-.footer-links-grid a {
-  color: #00ffff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  padding: 8px 0; 
-  transition: text-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.footer-links-grid a:hover {
-  text-shadow: 0 0 12px #00ffff;
-  transform: translateY(-2px);
-}
-
-.footer-contact h3 {
+.footer-col h2, .footer-col h3 {
   color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 45px; 
+.footer-col h2 { font-size: 1.5rem; }
+.footer-col h3 { font-size: 1.05rem; text-transform: uppercase; color: #e5e7eb; }
+
+.brand-col p {
+  color: #9ca3af;
+  line-height: 1.6;
   margin-bottom: 30px;
-  flex-wrap: wrap;
+  font-size: 0.95rem;
+  max-width: 90%;
 }
 
-.social-links a {
-  color: #00ffff;
+.premium-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #000000 !important;
+  background: #00ffff;
+  padding: 12px 28px;
+  border-radius: 99px;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: text-shadow 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.social-links a:hover {
-  text-shadow: 0 0 12px #00ffff;
-  transform: translateY(-2px);
+.premium-home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.25);
 }
 
-.footer-bottom {
-  font-size: 0.8rem;
-  opacity: 0.5;
-  padding-top: 20px;
+.subject-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subject-grid a, .social-list a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.subject-grid a:hover, .social-list a:hover {
+  color: #00ffff;
+  transform: translateX(6px);
+}
+
+.footer-bottom-bar {
+  max-width: 1000px;
+  margin: 0 auto;
   border-top: 1px solid #1e293b;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6b7280;
+  font-size: 0.85rem;
 }
 
-/* NEON CLICK OVERLAY */
+.footer-legal a {
+  color: #6b7280;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover { color: #00ffff; }
+
+@media (max-width: 768px) {
+  .footer-main { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom-bar { flex-direction: column; gap: 15px; text-align: center; }
+  .footer-legal a { margin: 0 10px; }
+}
+
+/* 11-SECOND NEON CLICK OVERLAY */
 #neonClickOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 9999;
   opacity: 0;
@@ -362,32 +370,30 @@ body.light .book::after {
    🎯 FOCUS MODE (BLACK & WHITE OVERRIDES)
    ========================================= */
 
-body.dark.focus-mode {
+/* Use the * wildcard so it overpowers inline book card colors! */
+body.dark.focus-mode * {
   --neon: #ffffff !important; 
 }
 
-body.light.focus-mode {
+body.light.focus-mode * {
   --neon: #000000 !important;
 }
 
+/* Disable all distracting glows and animations */
 body.focus-mode .book:hover,
 body.focus-mode .actions a:hover,
-body.focus-mode .tab.active,
-body.focus-mode .home-btn,
-body.focus-mode .home-btn:active,
+body.focus-mode .premium-home-btn,
+body.focus-mode .premium-home-btn:hover,
 body.focus-mode .author-header-toggle:hover {
   box-shadow: none !important;
 }
 
-body.focus-mode .book::before {
-  display: none !important;
+body.focus-mode .book::before,
+body.focus-mode .premium-footer::before {
+  display: none !important; /* Hides fuzzy shadows and gradients */
 }
 
-body.focus-mode .professional-footer {
-  animation: none !important;
-  border-top: 4px solid var(--neon) !important;
-}
-
+/* Correct button contrast in Focus Mode */
 body.dark.focus-mode .actions a:hover {
   background: #ffffff !important;
   color: #000000 !important;
@@ -398,15 +404,21 @@ body.light.focus-mode .actions a:hover {
   color: #ffffff !important;
 }
 
-body.focus-mode .footer-links-grid a,
-body.focus-mode .social-links a,
-body.focus-mode .home-btn {
-  color: var(--neon) !important;
-  border-color: var(--neon) !important;
-  text-shadow: none !important;
+body.dark.focus-mode .premium-home-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
 }
 
-body.focus-mode .footer-links-grid a:hover,
-body.focus-mode .social-links a:hover {
+body.light.focus-mode .premium-home-btn {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Disable footer slide animations in Focus Mode */
+body.focus-mode .subject-grid a:hover, 
+body.focus-mode .social-list a:hover,
+body.focus-mode .footer-legal a:hover {
   font-weight: bold;
+  transform: none !important;
+  color: var(--neon) !important;
 }
