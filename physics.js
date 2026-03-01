@@ -145,6 +145,7 @@ const authorPanel = document.getElementById("authorPanel");
 const closeAuthor = document.getElementById("closeAuthor");
 const authorList = document.getElementById("authorList");
 const toggle = document.getElementById("themeToggle");
+const focusBtn = document.getElementById("focusBtn");
 
 /* STATE */
 let searchTerm = "";
@@ -154,7 +155,7 @@ let selectedAuthors = new Set();
 if (authorList) {
   const authors = [...new Set(books.flatMap(b => b.authors))];
   
-  // Sort the sidebar list by your custom serial numbers!
+  // Sort the sidebar list by your custom serial numbers
   authors.sort((a, b) => {
     const orderA = AUTHOR_ORDER[a] || 999;
     const orderB = AUTHOR_ORDER[b] || 999;
@@ -162,7 +163,6 @@ if (authorList) {
   });
   
   authorList.innerHTML = authors.map(a => {
-    // Only showing the author's name cleanly!
     return `
       <label>
         <input type="checkbox" value="${a.toLowerCase()}"> ${a}
@@ -193,18 +193,12 @@ if (toggle) {
 }
 
 /* FOCUS MODE TOGGLE */
-const focusBtn = document.getElementById("focusBtn");
 if (focusBtn) {
   focusBtn.addEventListener("click", () => {
-    // This turns Focus Mode on and off
     document.body.classList.toggle("focus-mode");
-    
-    // Change the icon so the user knows it is active
     focusBtn.textContent = document.body.classList.contains("focus-mode") ? "👓" : "🎯";
   });
 }
-
-
 
 /* SEARCH */
 let timer;
@@ -242,43 +236,36 @@ function renderBooks() {
     groupedBooks[mainAuthor].push(book);
   }
 
-  // 3. Sort Authors by Background Serial Number and Render
+  // 3. Sort Authors by Background Serial Number
   const sortedAuthors = Object.keys(groupedBooks).sort((a, b) => {
     const orderA = AUTHOR_ORDER[a] || 999;
     const orderB = AUTHOR_ORDER[b] || 999;
     return orderA - orderB;
   });
   
-  // Loop to draw each author onto the page
+  // Loop to draw each author
   for (const author of sortedAuthors) {
     const authorBooks = groupedBooks[author];
 
-    // Section Wrapper
     const section = document.createElement("div");
     section.className = "author-section";
 
-    // Clickable Header
     const header = document.createElement("div");
     header.className = "author-header-toggle";
-    
-    // Numbers removed here! Just displaying the author's name cleanly.
     header.innerHTML = `
       <h2>${author}</h2>
       <span class="arrow">↓</span>
     `;
 
-    // Inner Grid Container
     const booksContainer = document.createElement("div");
     booksContainer.className = "author-books-grid";
 
-    // Toggle (Folding) Event Listener
     header.addEventListener("click", () => {
       booksContainer.classList.toggle("collapsed");
       const arrow = header.querySelector(".arrow");
       arrow.style.transform = booksContainer.classList.contains("collapsed") ? "rotate(-90deg)" : "rotate(0deg)";
     });
 
-    // Populate the inner grid with cards
     for (const book of authorBooks) {
       const card = document.createElement("div");
       card.className = "book";
@@ -286,8 +273,7 @@ function renderBooks() {
 
       const viewer = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
 
-      // THIS IS THE BYPASS TRICK:
-      // If there is a real GDrive link, send it to our custom viewer instead!
+      // BYPASS TRICK
       const finalGDriveLink = book.gdrive !== "#" 
         ? `gdrive.html?url=${encodeURIComponent(book.gdrive)}` 
         : "#";
@@ -298,9 +284,7 @@ function renderBooks() {
           <div class="size">📦 ${book.size}</div>
           <div class="actions">
             <a href="${viewer}" target="_blank">View</a>
-            
             <a href="${finalGDriveLink}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
-            
             <a href="${book.drive}" target="_blank" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
             <a href="${book.download}" download>Download</a>
           </div>
@@ -310,13 +294,11 @@ function renderBooks() {
       booksContainer.appendChild(card);
     }
 
-    // Attach to the fragment
     section.appendChild(header);
     section.appendChild(booksContainer);
     frag.appendChild(section);
-  } // END OF THE LOOP
+  }
 
-  // Add the final fragment to the DOM
   grid.appendChild(frag);
 }
 
