@@ -23,9 +23,11 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1.pdf",
-  gdrive: "https://drive.google.com/file/d/1FNIEG8gtjaH2L6Wdx71OXVVXZcgv6San/preview",
+  gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf",
+  solution: "#",
+  onedrive: "#" // <-- Added OneDrive link slot here!
 },
 {
   name: "Concepts Of Physics – Vol 2",
@@ -33,9 +35,11 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol2.pdf",
-  gdrive: "https://drive.google.com/file/d/1FO1nBFo75pUOGt41qkxazQVv6KHqK2az/preview",
+  gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "Concepts Of Physics – Solutions (Vol 1 & 2)",
@@ -43,9 +47,11 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
-  gdrive: "https://drive.google.com/file/d/1FSxa3TndyaEPK9nu2MhLy9FXRbiCSF2j/preview",
+  gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "DC Pandey – Mechanics Vol 1",
@@ -55,7 +61,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics1.pdf",
   gdrive: "https://drive.google.com/file/d/1Ft7LyjA3FLoRYhTCDHWPEu_aYbhWaeau/preview",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics1.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics1.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "DC Pandey – Mechanics Vol 2",
@@ -63,9 +71,11 @@ const books = [
   size: "—",
   category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics2.pdf",
-  gdrive: "https://drive.google.com/file/d/1Fv-w6t8fdsWGFcBcWjEK_bYjsm7fVMbm/view?usp=drivesdk",
+  gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics2.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics2.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "DC Pandey – Waves & Thermodynamics",
@@ -75,7 +85,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeywavesandthermodynamics.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeywavesandthermodynamics.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeywavesandthermodynamics.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "DC Pandey – Electricity & Magnetism",
@@ -85,7 +97,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyelectricityandmagnetism.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyelectricityandmagnetism.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyelectricityandmagnetism.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "DC Pandey – Optics & Modern Physics",
@@ -95,7 +109,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyopticsandmodernphysics.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyopticsandmodernphysics.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyopticsandmodernphysics.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "Career Will – Geometrical Optics Sheet",
@@ -105,7 +121,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet1geometricaloptics.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet1geometricaloptics.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet1geometricaloptics.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "Career Will – Wave Optics Sheet 1",
@@ -115,7 +133,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet1waveoptics.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet1waveoptics.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet1waveoptics.pdf",
+  solution: "#",
+  onedrive: "#"
 },
 {
   name: "Career Will – Wave Optics Sheet 2",
@@ -125,7 +145,9 @@ const books = [
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/cwsheet2waveoptics.pdf",
   gdrive: "#",
   drive: "#",
-  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet2waveoptics.pdf"
+  download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/cwsheet2waveoptics.pdf",
+  solution: "#",
+  onedrive: "#"
 }
 ];
 
@@ -217,14 +239,14 @@ function renderBooks() {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
 
-  // 1. Filter
+  // 1. Filter the books
   const filteredBooks = processedBooks.filter(book => {
     if (searchTerm && !book.nameLC.includes(searchTerm)) return false;
     if (selectedAuthors.size && !book.authorsLC.some(a => selectedAuthors.has(a))) return false;
     return true;
   });
 
-  // 2. Group
+  // 2. Group the books by Author
   const groupedBooks = {};
   for (const book of filteredBooks) {
     const mainAuthor = book.authors[0] || "Unknown Author";
@@ -234,14 +256,14 @@ function renderBooks() {
     groupedBooks[mainAuthor].push(book);
   }
 
-  // 3. Sort
+  // 3. Sort Authors by Background Serial Number
   const sortedAuthors = Object.keys(groupedBooks).sort((a, b) => {
     const orderA = AUTHOR_ORDER[a] || 999;
     const orderB = AUTHOR_ORDER[b] || 999;
     return orderA - orderB;
   });
   
-  // 4. Render
+  // Loop to draw each author onto the page
   for (const author of sortedAuthors) {
     const authorBooks = groupedBooks[author];
 
@@ -276,6 +298,7 @@ function renderBooks() {
         ? `gdrive.html?url=${encodeURIComponent(book.gdrive)}` 
         : "#";
 
+      // HTML FOR THE BOOK CARD - WITH THE 6TH ONEDRIVE BUTTON INCLUDED
       card.innerHTML = `
         <div class="book-content">
           <h3>${book.name}</h3>
@@ -285,6 +308,9 @@ function renderBooks() {
             <a href="${finalGDriveLink}" target="_blank" class="${book.gdrive === "#" ? "disabled" : ""}">GDrive</a>
             <a href="${book.drive}" target="_blank" class="${book.drive === "#" ? "disabled" : ""}">Drive</a>
             <a href="${book.download}" download>Download</a>
+            <a href="${book.solution || "#"}" target="_blank" class="${!book.solution || book.solution === "#" ? "disabled" : ""}">Solution</a>
+            
+            <a href="${book.onedrive || "#"}" target="_blank" class="${!book.onedrive || book.onedrive === "#" ? "disabled" : ""}">OneDrive</a>
           </div>
         </div>
       `;
