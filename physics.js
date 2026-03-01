@@ -23,8 +23,8 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1.pdf",
-  gdrive: "#",
-  drive: "#",
+  gdrive: "https://drive.google.com/file/d/1FNIEG8gtjaH2L6Wdx71OXVVXZcgv6San/preview",
+  drive: "https://drive.google.com/file/d/1FNIEG8gtjaH2L6Wdx71OXVVXZcgv6San/view?usp=drive_link",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf",
   solution: "#",
   onedrive: "#" // <-- Added OneDrive link slot here!
