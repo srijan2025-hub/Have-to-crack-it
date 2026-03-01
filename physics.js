@@ -23,7 +23,7 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1.pdf",
-  gdrive: "#",
+  gdrive: "https://drive.google.com/file/d/1FNIEG8gtjaH2L6Wdx71OXVVXZcgv6San/preview",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1.pdf"
 },
@@ -33,7 +33,7 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol2.pdf",
-  gdrive: "#",
+  gdrive: "https://drive.google.com/file/d/1FO1nBFo75pUOGt41qkxazQVv6KHqK2az/preview",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol2.pdf"
 },
@@ -43,7 +43,7 @@ const books = [
   size: "18.2 MB",
   category: "c1",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/HCVVol1and2solutions.pdf",
-  gdrive: "#",
+  gdrive: "https://drive.google.com/file/d/1FSxa3TndyaEPK9nu2MhLy9FXRbiCSF2j/preview",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/HCVVol1and2solutions.pdf"
 },
@@ -63,7 +63,7 @@ const books = [
   size: "—",
   category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics2.pdf",
-  gdrive: "#",
+  gdrive: "https://drive.google.com/file/d/1Fv-w6t8fdsWGFcBcWjEK_bYjsm7fVMbm/view?usp=drivesdk",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics2.pdf"
 },
