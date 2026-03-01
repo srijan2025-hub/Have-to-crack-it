@@ -53,7 +53,6 @@ const books = [
   size: "—",
   category: "c2",
   pdf: "https://srijan2025-hub.github.io/physicsstorage1/DCPandeyMechanics1.pdf",
-  // Updated to /preview so it stays in the browser!
   gdrive: "https://drive.google.com/file/d/1Ft7LyjA3FLoRYhTCDHWPEu_aYbhWaeau/preview",
   drive: "#",
   download: "https://raw.githubusercontent.com/srijan2025-hub/physicsstorage1/df31c0ef0314f6e9226f119a2c338845531f01c6/DCPandeyMechanics1.pdf"
@@ -155,7 +154,6 @@ let selectedAuthors = new Set();
 if (authorList) {
   const authors = [...new Set(books.flatMap(b => b.authors))];
   
-  // Sort the sidebar list by your custom serial numbers
   authors.sort((a, b) => {
     const orderA = AUTHOR_ORDER[a] || 999;
     const orderB = AUTHOR_ORDER[b] || 999;
@@ -219,14 +217,14 @@ function renderBooks() {
   grid.innerHTML = "";
   const frag = document.createDocumentFragment();
 
-  // 1. Filter the books
+  // 1. Filter
   const filteredBooks = processedBooks.filter(book => {
     if (searchTerm && !book.nameLC.includes(searchTerm)) return false;
     if (selectedAuthors.size && !book.authorsLC.some(a => selectedAuthors.has(a))) return false;
     return true;
   });
 
-  // 2. Group the books by Author
+  // 2. Group
   const groupedBooks = {};
   for (const book of filteredBooks) {
     const mainAuthor = book.authors[0] || "Unknown Author";
@@ -236,14 +234,14 @@ function renderBooks() {
     groupedBooks[mainAuthor].push(book);
   }
 
-  // 3. Sort Authors by Background Serial Number
+  // 3. Sort
   const sortedAuthors = Object.keys(groupedBooks).sort((a, b) => {
     const orderA = AUTHOR_ORDER[a] || 999;
     const orderB = AUTHOR_ORDER[b] || 999;
     return orderA - orderB;
   });
   
-  // Loop to draw each author
+  // 4. Render
   for (const author of sortedAuthors) {
     const authorBooks = groupedBooks[author];
 
@@ -273,7 +271,7 @@ function renderBooks() {
 
       const viewer = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(book.pdf)}`;
 
-      // BYPASS TRICK
+      // BYPASS TRICK FOR GDRIVE
       const finalGDriveLink = book.gdrive !== "#" 
         ? `gdrive.html?url=${encodeURIComponent(book.gdrive)}` 
         : "#";
